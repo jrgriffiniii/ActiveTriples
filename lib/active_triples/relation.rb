@@ -36,6 +36,14 @@ module ActiveTriples
 
     delegate :[], :inspect, :last, :size, :join, to: :to_a
 
+    # Delegating to the underlying Enumerable#to_a does not preserve RDF
+    # literals
+    # @return [Array<Object>]
+    def to_a
+      return [] if predicate.nil?
+      objects.to_a
+    end
+
     ##
     # @param [ActiveTriples::RDFSource] parent_source
     # @param [Array<Symbol, Hash>] value_arguments  if a Hash is passed as the
