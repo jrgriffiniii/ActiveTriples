@@ -39,7 +39,7 @@ module ActiveTriples
     # Delegating to the underlying Enumerable#to_a does not preserve RDF
     # literals
     # @return [Array<Object>]
-    def to_a
+    def rdf_values
       return [] if predicate.nil?
       objects.to_a
     end
