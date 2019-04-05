@@ -34,7 +34,7 @@ module ActiveTriples
     attr_accessor :parent, :value_arguments
     attr_reader :reflections, :rel_args
 
-    delegate :[], :inspect, :last, :size, :join, to: :to_a
+    delegate :[], :inspect, :last, :size, :join, :map, to: :to_a
 
     # Delegating to the underlying Enumerable#to_a does not preserve RDF
     # literals
